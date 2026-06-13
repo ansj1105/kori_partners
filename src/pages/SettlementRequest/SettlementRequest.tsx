@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, type CSSProperties } from 'react'
 import PageHeader from '../../components/organisms/PageHeader'
 import Button from '../../components/atoms/Button'
 import InfoGrid from '../../components/molecules/InfoGrid'
@@ -35,7 +35,7 @@ export default function SettlementRequest() {
   const [submitted, setSubmitted] = useState(false)
 
   const {
-    banner, stats, calc, feeStructure, autoDesc, autoHighlight, autoStats,
+    banner, kpis, calc, feeStructure, autoDesc, autoHighlight, autoStats,
     partnerTable, directTable, heldTable, summary, checks, formFields,
   } = useSettlementRequest()
 
@@ -93,13 +93,18 @@ export default function SettlementRequest() {
         />
       </div>
 
-      {/* 지표 8개 — 감싸는 박스 없이 독립 카드 4×2 */}
+      {/* 지표 8개 — 감싸는 박스 없이 독립 카드 4×2, 제목 칩은 카드별 색 */}
       <div className={styles.kpiGrid}>
-        {stats.map((s) => (
-          <div key={s.id} className={styles.kpiCard}>
-            <span className={styles.kpiLabel}>{s.label}</span>
-            <span className={styles.kpiValue}>{s.value}</span>
-            {s.note && <span className={styles.kpiNote}>{s.note}</span>}
+        {kpis.map((k) => (
+          <div key={k.id} className={styles.kpiCard}>
+            <span
+              className={`${styles.kpiLabel} ${k.chipSolid ? styles.kpiLabelSolid : styles.kpiLabelTranslucent}`}
+              style={{ '--chip': k.chip } as CSSProperties}
+            >
+              {k.label}
+            </span>
+            <span className={styles.kpiValue}>{k.value}</span>
+            {k.note && <span className={styles.kpiNote}>{k.note}</span>}
           </div>
         ))}
       </div>
@@ -143,7 +148,7 @@ export default function SettlementRequest() {
         <div className={styles.summaryGrid}>
           {autoStats.map((s) => (
             <div key={s.id} className={styles.summaryCard}>
-              <span className={styles.kpiLabel}>{s.label}</span>
+              <span className={styles.summaryLabel}>{s.label}</span>
               <span className={styles.kpiValue}>{s.value}</span>
               {s.note && <span className={styles.kpiNote}>{s.note}</span>}
             </div>

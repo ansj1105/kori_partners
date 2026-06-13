@@ -7,6 +7,18 @@ interface StatRaw {
   labelKey: string
   value: string
   note?: string
+  chip?: string
+  chipSolid?: boolean
+}
+
+/** KPI 카드 항목 (제목 칩 색 포함) */
+export interface KpiItem {
+  id: string
+  label: string
+  value: string
+  note?: string
+  chip: string
+  chipSolid: boolean
 }
 interface FieldRaw {
   labelKey: string
@@ -64,9 +76,18 @@ export function useSettlementRequest() {
     { key: 'detail', label: t('settle.req.ht.detail'), width: '0.7fr' },
   ]
 
+  const kpis: KpiItem[] = (data.stats as StatRaw[]).map((s) => ({
+    id: s.labelKey,
+    label: t(s.labelKey),
+    value: s.value,
+    note: s.note,
+    chip: s.chip ?? '#7c5cff',
+    chipSolid: s.chipSolid ?? false,
+  }))
+
   return {
     banner: data.banner,
-    stats: toStats(data.stats as StatRaw[]),
+    kpis,
     calc: data.calc,
     feeStructure: data.feeStructure as string[][],
     autoDesc: data.autoDesc,
