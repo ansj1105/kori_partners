@@ -1,6 +1,6 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PageHeader from '../../components/organisms/PageHeader'
-import FilterTabs from '../../components/molecules/FilterTabs'
 import DataTable, { type TableRow } from '../../components/organisms/DataTable'
 import Badge from '../../components/atoms/Badge'
 import { useTranslation } from '../../i18n'
@@ -16,6 +16,8 @@ import styles from './SettlementHistory.module.css'
 export default function SettlementHistory() {
   const { t } = useTranslation()
   const { lastSettleDate, thisRequestAmount, tabs, columns, rows: rawRows } = useSettlementHistory()
+  // 상태 선택 — 기본 "본사 검토중"(tabs[0]). 한 번에 하나만 표시되는 드롭다운.
+  const [status, setStatus] = useState(tabs[0])
 
   const rows: TableRow[] = rawRows.map((r) => ({
     id: r.period, // 정산번호가 모두 동일해 기간을 식별자로 사용
@@ -42,20 +44,28 @@ export default function SettlementHistory() {
     <div className={styles.page}>
       <PageHeader title={t('settle.hist.title')} />
 
-      {/* 요약 칩 */}
-      <div className={styles.pills}>
-        <div className={styles.pill}>
-          <span className={styles.pillLabel}>{t('settle.hist.lastDate')}</span>
-          <span className={styles.pillValue}>{lastSettleDate}</span>
+      {/* 상단: 마지막 정산일 카드 + 이번 요청 카드 + 상태 드롭다운 */}
+      <div className={styles.topRow}>
+        <div className={styles.sCard}>
+          <span className={`${styles.sChip} ${styles.sChipGray}`}>{t('settle.hist.lastDate')}</span>
+          <span className={styles.sValue}>{lastSettleDate}</span>
         </div>
-        <div className={`${styles.pill} ${styles.pillGreen}`}>
-          <span className={styles.pillLabel}>{t('settle.hist.thisRequest')}</span>
-          <span className={styles.pillValue}>{thisRequestAmount}</span>
+        <div className={`${styles.sCard} ${styles.sCardCurrent}`}>
+          <span className={`${styles.sChip} ${styles.sChipTeal}`}>{t('settle.hist.thisRequest')}</span>
+          <span className={`${styles.sValue} ${styles.sValueTeal}`}>{thisRequestAmount}</span>
         </div>
+        {/* 상태 드롭다운 — 기본 본사 검토중, 한 번에 하나만 표시 */}
+        <select
+          className={styles.statusSelect}
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+          aria-label="정산 상태 선택"
+        >
+          {tabs.map((s) => (
+            <option key={s} value={s}>{s}</option>
+          ))}
+        </select>
       </div>
-
-      {/* 상태 필터 탭 */}
-      <FilterTabs labels={tabs} />
 
       {/* 정산 내역 테이블 */}
       <DataTable

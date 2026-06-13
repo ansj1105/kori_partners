@@ -1,4 +1,4 @@
-/* 정산 내역 화면 — 상단 요약 칩 + 상태 탭 + 테이블 */
+/* 정산 내역 화면 — 상단 요약 카드 2개 + 상태 드롭다운 + 테이블 */
 .page {
   display: flex;
   flex-direction: column;
@@ -6,37 +6,82 @@
   flex: 1;
 }
 
-/* 요약 칩 줄 (마지막 정산일 / 이번 요청액) */
-.pills {
+/* 상단 줄: 마지막 정산일 카드 + 이번 요청 카드 + 상태 드롭다운 */
+.topRow {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-3);
-}
-
-.pill {
-  display: inline-flex;
   align-items: center;
+  gap: var(--space-4);
+}
+
+/* 요약 카드 (칩 + 값) */
+.sCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   gap: var(--space-3);
-  padding: var(--space-3) var(--space-5);
+  min-width: 250px;
+  min-height: 100px;
+  padding: var(--space-4);
+  background-color: color-mix(in srgb, #141027 90%, transparent);
+  border: 1px solid color-mix(in srgb, #7c5cff 32%, transparent);
+  border-radius: 18px;
+}
+/* 이번 요청 카드 — 시안 테두리 강조 */
+.sCardCurrent {
+  background-color: color-mix(in srgb, #111327 94%, transparent);
+  border-color: color-mix(in srgb, #22d9ff 50%, transparent);
+}
+
+/* 카드 칩(라벨) */
+.sChip {
+  align-self: flex-start;
+  padding: 4px var(--space-3);
   border-radius: var(--radius-pill);
-  background-color: color-mix(in srgb, var(--color-surface) 60%, transparent);
-  border: 1px solid color-mix(in srgb, var(--color-border-accent) 50%, transparent);
   font-size: var(--font-size-12);
+  font-weight: var(--font-weight-semibold);
+}
+.sChipGray {
+  color: #e2dff8;
+  background-color: color-mix(in srgb, #5c5878 74%, transparent);
+}
+.sChipTeal {
+  color: #061612;
+  background-color: color-mix(in srgb, #24e6b8 92%, transparent);
 }
 
-.pillLabel {
-  color: var(--color-text-muted);
-}
-
-.pillValue {
-  font-size: var(--font-size-15);
+.sValue {
+  font-size: var(--font-size-23);
   font-weight: var(--font-weight-bold);
+  color: #ffffff;
+}
+/* 이번 요청 값 — 청록, 우측 정렬, 더 큼 */
+.sValueTeal {
+  align-self: flex-end;
+  font-size: 28px;
+  color: #24e6b8;
 }
 
-/* "이번 요청" 초록 강조 칩 */
-.pillGreen {
-  border-color: var(--color-accent-green);
+/*
+ * 상태 선택 드롭다운 — 기본 "본사 검토중"(보라), 한 번에 하나만 표시.
+ * (지급 완료/보류/반려·조정은 펼치면 보인다)
+ */
+.statusSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: var(--space-2) var(--space-6) var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  border: 1px solid color-mix(in srgb, #7c5cff 60%, transparent);
+  background-color: color-mix(in srgb, #7c5cff 24%, transparent);
+  color: var(--color-text);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'><path d='M1 2.5L4 5.5L7 2.5' stroke='%23f2f0ff' stroke-width='1.2' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
 }
-.pillGreen .pillValue {
-  color: var(--color-accent-green);
+.statusSelect option {
+  color: #1a122a;
+  background-color: #f2f0ff;
 }
