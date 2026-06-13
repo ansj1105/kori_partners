@@ -11,6 +11,17 @@ import styles from './SettlementRequest.module.css'
 /** 분배 게이지 세그먼트 색 (본사/리더/파트너) */
 const ROLE_COLOR: Record<string, string> = { hq: '#7c5cff', leader: '#24e6b8', partner: '#f6c85a' }
 
+/** 수수료 구조 — 카테고리(첫 항목) 칩 색 */
+function feeCatClass(label: string) {
+  return label.includes('직계약') ? styles.feeCatDirect : styles.feeCatPartner
+}
+/** 수수료 구조 — 스텝 칩 색 (본사/가맹점=회보라, 리더=청록, 파트너=골드) */
+function feeStepClass(label: string) {
+  if (label.startsWith('리더')) return styles.feeLeader
+  if (label.startsWith('파트너')) return styles.feePartner
+  return styles.feeHq // 본사 / 가맹점
+}
+
 /** 정산 계산 수식의 금액 카드 (add: 시안 / minus: 빨강 / final: 그라데이션) */
 function AmountCard({ variant, label, value, unit }: { variant: 'add' | 'minus' | 'final'; label: string; value: string; unit: string }) {
   if (variant === 'final') {
@@ -124,8 +135,8 @@ export default function SettlementRequest() {
 
       {/* 정산 가능 금액 계산 (시안 히어로 박스) */}
       <div className={styles.calcHero}>
-        <h3 className={styles.sectionTitle}>{t('settle.req.calc.title')}</h3>
-        <p className={styles.sectionDesc}>{t('settle.req.calc.desc')}</p>
+        <h3 className={styles.calcTitle}>{t('settle.req.calc.title')}</h3>
+        <p className={styles.calcDesc}>{t('settle.req.calc.desc')}</p>
         <div className={styles.formula}>
           <AmountCard variant="add" label={t('settle.req.calc.partnerProfit')} value={calc.partnerProfit} unit={calc.unit} />
           <span className={styles.formulaOp}>+</span>
@@ -157,14 +168,14 @@ export default function SettlementRequest() {
 
       {/* 수수료 구조 (별도 박스) */}
       <div className={styles.feeBox}>
-        <h3 className={styles.sectionTitle}>{t('settle.req.fee.title')}</h3>
+        <h3 className={styles.feeTitle}>{t('settle.req.fee.title')}</h3>
         {feeStructure.map((row, i) => (
           <div key={i} className={styles.feeRow}>
-            <span className={styles.feeCat}>{row[0]}</span>
+            <span className={`${styles.feeChip} ${feeCatClass(row[0])}`}>{row[0]}</span>
             {row.slice(1).map((stepLabel, j) => (
               <Fragment key={j}>
                 {j > 0 && <span className={styles.feeArrow}>→</span>}
-                <span className={styles.feeStep}>{stepLabel}</span>
+                <span className={`${styles.feeChip} ${feeStepClass(stepLabel)}`}>{stepLabel}</span>
               </Fragment>
             ))}
           </div>
