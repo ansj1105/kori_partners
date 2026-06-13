@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import PageHeader from '../../organisms/PageHeader'
 import StatSection from '../../organisms/StatSection'
 import DataTable, { type Column, type TableRow } from '../../organisms/DataTable'
@@ -10,9 +11,13 @@ export interface SalesTable {
   id: string
   /** 테이블 제목 */
   title: string
+  /** 제목 우측 부가요소 (예: 선택된 파트너명) */
+  titleRight?: ReactNode
   columns: Column[]
   rows: TableRow[]
   toolbar?: string[]
+  /** 행 클릭 콜백 (지정 시 행 전체 클릭 가능) */
+  onRowClick?: (id: string) => void
 }
 
 interface SalesPageProps {
@@ -42,9 +47,11 @@ export default function SalesPage({ title, sectionTitle, stats, tables }: SalesP
         <DataTable
           key={tbl.id}
           title={tbl.title}
+          titleRight={tbl.titleRight}
           columns={tbl.columns}
           rows={tbl.rows}
           toolbar={tbl.toolbar}
+          onRowClick={tbl.onRowClick}
         />
       ))}
     </div>

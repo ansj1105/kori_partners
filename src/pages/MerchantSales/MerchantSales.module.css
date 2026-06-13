@@ -1,0 +1,9 @@
+/* 가맹점별 매출 — 파트너별 매출에서 진입 시 제목 우측 파트너명 칩 */
+.partnerTag {
+  padding: 3px var(--space-3);
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-11);
+  font-weight: var(--font-weight-semibold);
+  color: #061612;
+  background-color: color-mix(in srgb, #24e6b8 92%, transparent);
+}

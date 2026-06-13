@@ -1,8 +1,10 @@
+import { useSearchParams } from 'react-router-dom'
 import SalesPage, { type SalesTable } from '../../components/templates/SalesPage'
 import ActionBadges from '../../components/molecules/ActionBadges'
 import type { TableRow } from '../../components/organisms/DataTable'
 import { useTranslation } from '../../i18n'
 import { useMerchantSales } from './useMerchantSales'
+import styles from './MerchantSales.module.css'
 
 /*
  * MerchantSales (page) — 가맹점 관리 · 가맹점별 매출
@@ -13,6 +15,10 @@ export default function MerchantSales() {
   const { t } = useTranslation()
   const { stats, t1, t2 } = useMerchantSales()
   const toolbar = [t('common.search'), t('common.filter'), t('common.excel')]
+
+  // 파트너별 매출에서 진입한 경우 선택된 파트너명을 쿼리로 받아 제목 우측에 표시
+  const [searchParams] = useSearchParams()
+  const partner = searchParams.get('partner')
 
   // 테이블 1: 가맹점별 매출 (행마다 "상세" 액션)
   const t1Rows: TableRow[] = t1.rows.map((r) => ({
@@ -49,7 +55,15 @@ export default function MerchantSales() {
   }))
 
   const tables: SalesTable[] = [
-    { id: 't1', title: t1.title, columns: t1.columns, rows: t1Rows, toolbar },
+    {
+      id: 't1',
+      title: t1.title,
+      // 파트너별 매출에서 넘어온 경우, 제목 우측에 해당 파트너명 칩 표시
+      titleRight: partner ? <span className={styles.partnerTag}>{partner}</span> : undefined,
+      columns: t1.columns,
+      rows: t1Rows,
+      toolbar,
+    },
     { id: 't2', title: t2.title, columns: t2.columns, rows: t2Rows, toolbar },
   ]
 

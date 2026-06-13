@@ -24,12 +24,16 @@ interface DataTableProps {
   rows: TableRow[]
   /** 테이블 제목 (예: "파트너별 매출"). 없으면 미표시 */
   title?: string
+  /** 제목 우측에 붙는 부가 요소 (예: 선택된 파트너명). 없으면 미표시 */
+  titleRight?: ReactNode
   /** 상단 툴바 버튼 라벨들 (예: ['검색','필터','Excel']). 동작 없는 UI. 없으면 툴바 미표시 */
   toolbar?: string[]
   /** true면 flex 컬럼 부모 안에서 남은 세로 높이를 채운다 (단일 테이블 목록 화면용) */
   fill?: boolean
   /** true면 카드 외형(배경/테두리/그림자) 없이 표만 렌더 (패널 내부 서브 테이블용) */
   bare?: boolean
+  /** 행 클릭 콜백 — 지정하면 행 전체가 클릭 가능(커서/호버) 해지고 클릭 시 row.id를 넘긴다 */
+  onRowClick?: (id: string) => void
 }
 
 /*
@@ -40,7 +44,7 @@ interface DataTableProps {
  * - 액션 버튼·상태 배지 등은 행 데이터의 셀에 React 노드로 직접 넣어 유연하게 표현.
  * - 정렬/검색/필터 등 동작은 작업 범위 밖(정적 표시).
  */
-export default function DataTable({ columns, rows, title, toolbar, fill, bare }: DataTableProps) {
+export default function DataTable({ columns, rows, title, titleRight, toolbar, fill, bare, onRowClick }: DataTableProps) {
   // 컬럼 폭을 모아 grid-template-columns 값을 만든다
   const cols = columns.map((c) => c.width ?? '1fr').join(' ')
   const gridStyle = { '--cols': cols } as CSSProperties
@@ -53,7 +57,11 @@ export default function DataTable({ columns, rows, title, toolbar, fill, bare }:
     <div className={wrapClass}>
       {(title || toolbar) && (
         <div className={styles.tableHead}>
-          {title && <h3 className={styles.tableTitle}>{title}</h3>}
+          {/* 제목 + (선택) 제목 우측 부가요소 */}
+          <div className={styles.titleCluster}>
+            {title && <h3 className={styles.tableTitle}>{title}</h3>}
+            {titleRight}
+          </div>
           {toolbar && (
             <div className={styles.toolbar}>
               {toolbar.map((label) => (
@@ -75,9 +83,14 @@ export default function DataTable({ columns, rows, title, toolbar, fill, bare }:
         ))}
       </div>
 
-      {/* 데이터 행들 */}
+      {/* 데이터 행들 (onRowClick 지정 시 행 전체가 클릭 가능) */}
       {rows.map((row) => (
-        <div key={row.id} className={styles.row} style={gridStyle}>
+        <div
+          key={row.id}
+          className={onRowClick ? `${styles.row} ${styles.rowClickable}` : styles.row}
+          style={gridStyle}
+          onClick={onRowClick ? () => onRowClick(row.id) : undefined}
+        >
           {columns.map((c) => (
             <div key={c.key} className={styles.cell} style={{ textAlign: c.align }}>
               {row.cells[c.key]}

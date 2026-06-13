@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import RequestListPage from '../../../components/templates/RequestListPage'
 import ActionBadges from '../../../components/molecules/ActionBadges'
 import Badge from '../../../components/atoms/Badge'
@@ -18,6 +18,7 @@ const DETAIL_LABEL = PARTNER_MERCHANT_ACTIONS[PARTNER_MERCHANT_ACTIONS.length - 
  */
 export default function PartnerRequestsMerchant() {
   const { t } = useTranslation()
+  const navigate = useNavigate()
   const { stats, columns, rows: rawRows } = usePartnerMerchantRequests()
 
   const rows: TableRow[] = rawRows.map((r) => ({
@@ -52,6 +53,8 @@ export default function PartnerRequestsMerchant() {
       columns={columns}
       rows={rows}
       toolbar={[t('common.search'), t('common.filter'), t('common.excel')]}
+      // 행 전체 클릭 → 가맹점 정보(상세) 화면으로 (상세 배지 클릭과 동일 동작)
+      onRowClick={() => navigate('detail')}
     />
   )
 }

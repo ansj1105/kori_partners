@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import SalesPage, { type SalesTable } from '../../components/templates/SalesPage'
 import ActionBadges from '../../components/molecules/ActionBadges'
 import type { TableRow } from '../../components/organisms/DataTable'
@@ -12,8 +13,12 @@ import { usePartnerSales } from './usePartnerSales'
  */
 export default function PartnerSales() {
   const { t } = useTranslation()
+  const navigate = useNavigate()
   const { stats, t1, t2Title, t3Title, merchantColumns, merchantRows } = usePartnerSales()
   const toolbar = [t('common.search'), t('common.filter'), t('common.excel')]
+
+  // 파트너 코드 → 파트너명 (행 클릭 시 가맹점별 매출로 파트너명을 전달하기 위함)
+  const nameByCode = new Map(t1.rows.map((r) => [r.code, r.name]))
 
   // 테이블 1: 파트너별 매출 (행마다 "상세" 액션)
   const t1Rows: TableRow[] = t1.rows.map((r) => ({
@@ -52,7 +57,16 @@ export default function PartnerSales() {
   }))
 
   const tables: SalesTable[] = [
-    { id: 't1', title: t1.title, columns: t1.columns, rows: t1Rows, toolbar },
+    {
+      id: 't1',
+      title: t1.title,
+      columns: t1.columns,
+      rows: t1Rows,
+      toolbar,
+      // 파트너 행 클릭 → 가맹점별 매출 페이지로 이동(선택 파트너명 전달)
+      onRowClick: (code) =>
+        navigate(`/leader/merchants/sales?partner=${encodeURIComponent(nameByCode.get(code) ?? '')}`),
+    },
     { id: 't2', title: t2Title, columns: merchantColumns, rows: merchantTableRows, toolbar },
     { id: 't3', title: t3Title, columns: merchantColumns, rows: merchantTableRows, toolbar },
   ]

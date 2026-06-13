@@ -21,6 +21,8 @@ interface RequestListPageProps {
   tableTitle?: string
   /** 테이블 툴바 버튼 라벨 */
   toolbar?: string[]
+  /** 행 클릭 콜백 (지정 시 행 전체 클릭 가능 — 예: 상세로 이동) */
+  onRowClick?: (id: string) => void
 }
 
 /*
@@ -39,12 +41,13 @@ export default function RequestListPage({
   rows,
   tableTitle,
   toolbar,
+  onRowClick,
 }: RequestListPageProps) {
   return (
     <div className={styles.page}>
       <PageHeader title={title} />
       <StatSection title={sectionTitle} desc={sectionDesc} stats={stats} />
-      <DataTable title={tableTitle} columns={columns} rows={rows} toolbar={toolbar} fill />
+      <DataTable title={tableTitle} columns={columns} rows={rows} toolbar={toolbar} fill onRowClick={onRowClick} />
     </div>
   )
 }
