@@ -109,8 +109,8 @@ export default function RoleSignup() {
                 <span className={styles.modeDesc}>{t(m.descKey)}</span>
 
                 {m.type === 'code' ? (
-                  {/* 추천인(리더/파트너) 코드 입력 + 코드 확인 버튼.
-                      '확인 완료' 상태 배지는 입력란 안 우측에 표시(Figma 기준). */}
+                  // 추천인(리더/파트너) 코드 입력 + 코드 확인 버튼.
+                  // '확인 완료' 상태 배지는 입력란 안 우측에 겹쳐 표시(Figma 기준).
                   <div className={styles.codeRow}>
                     <div className={styles.codeInputWrap}>
                       <input
