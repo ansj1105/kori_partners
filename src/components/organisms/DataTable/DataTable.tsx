@@ -22,8 +22,12 @@ export interface TableRow {
 interface DataTableProps {
   columns: Column[]
   rows: TableRow[]
+  /** 테이블 제목 (예: "파트너별 매출"). 없으면 미표시 */
+  title?: string
   /** 상단 툴바 버튼 라벨들 (예: ['검색','필터','Excel']). 동작 없는 UI. 없으면 툴바 미표시 */
   toolbar?: string[]
+  /** true면 flex 컬럼 부모 안에서 남은 세로 높이를 채운다 (단일 테이블 목록 화면용) */
+  fill?: boolean
 }
 
 /*
@@ -34,20 +38,25 @@ interface DataTableProps {
  * - 액션 버튼·상태 배지 등은 행 데이터의 셀에 React 노드로 직접 넣어 유연하게 표현.
  * - 정렬/검색/필터 등 동작은 작업 범위 밖(정적 표시).
  */
-export default function DataTable({ columns, rows, toolbar }: DataTableProps) {
+export default function DataTable({ columns, rows, title, toolbar, fill }: DataTableProps) {
   // 컬럼 폭을 모아 grid-template-columns 값을 만든다
   const cols = columns.map((c) => c.width ?? '1fr').join(' ')
   const gridStyle = { '--cols': cols } as CSSProperties
 
   return (
-    <div className={styles.wrap}>
-      {toolbar && (
-        <div className={styles.toolbar}>
-          {toolbar.map((label) => (
-            <button key={label} type="button" className={styles.toolbarButton}>
-              {label}
-            </button>
-          ))}
+    <div className={fill ? `${styles.wrap} ${styles.fill}` : styles.wrap}>
+      {(title || toolbar) && (
+        <div className={styles.tableHead}>
+          {title && <h3 className={styles.tableTitle}>{title}</h3>}
+          {toolbar && (
+            <div className={styles.toolbar}>
+              {toolbar.map((label) => (
+                <button key={label} type="button" className={styles.toolbarButton}>
+                  {label}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       )}
 

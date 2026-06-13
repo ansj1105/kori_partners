@@ -59,7 +59,9 @@ export default function Sidebar() {
                 <NavLink
                   key={item.path}
                   to={item.path}
-                  // NavLink는 현재 URL과 일치할 때 isActive=true → 항목 텍스트를 시안으로 강조
+                  // end: 정확히 일치할 때만 활성. (없으면 /partners 가 /partners/sales 까지
+                  //      활성으로 잡혀 같은 그룹의 두 메뉴가 중복 강조되는 문제 발생)
+                  end
                   className={({ isActive }) =>
                     isActive ? `${styles.item} ${styles.itemActive}` : styles.item
                   }

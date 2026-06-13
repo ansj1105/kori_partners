@@ -22,6 +22,12 @@
   color: var(--color-text-muted);
 }
 
+/* 라벨 아래 작은 부가설명 (예: 집계 기간 안내) */
+.note {
+  font-size: var(--font-size-9);
+  color: var(--color-text-subtle);
+}
+
 /* 값 + (선택) 태그 한 줄 */
 .valueRow {
   display: flex;

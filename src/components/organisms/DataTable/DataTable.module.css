@@ -7,13 +7,30 @@
   display: flex;
   flex-direction: column;
   gap: 9px;                  /* Figma 테이블 내부 간격 */
-  flex: 1;                   /* flex 컬럼 부모 안에서 남은 세로 높이를 채움 (행이 적어도 박스는 꽉 참) */
   padding: var(--space-4);
   background-color: color-mix(in srgb, var(--color-bg-elevated) 84%, transparent);
   border: 1px solid color-mix(in srgb, var(--color-border-accent) 62%, transparent);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   overflow-x: auto;          /* 컬럼이 많아 좁은 화면에서 가로 스크롤 허용 */
+}
+
+/* fill: flex 컬럼 부모 안에서 남은 세로 높이를 채움 (단일 테이블 목록 화면용) */
+.fill {
+  flex: 1;
+}
+
+/* 테이블 상단 줄: (제목 좌측) + (툴바 우측). 제목 없으면 툴바만 좌측. */
+.tableHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.tableTitle {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
 }
 
 /* 툴바(검색/필터/Excel 등) */

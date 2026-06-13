@@ -1,0 +1,6 @@
+/* 파트너별 매출 페이지 레이아웃 — 헤더 + 지표 섹션 + 테이블 3개 세로 배치 */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;               /* Figma 콘텐츠 세로 간격 18 */
+}
