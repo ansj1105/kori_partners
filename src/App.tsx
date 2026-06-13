@@ -60,6 +60,8 @@ const PARTNER_PAGES: Record<string, JSX.Element> = {
   'settlement/request': <PartnerSettlementRequest />,
   'settlement/history': <PartnerSettlementHistory />,
   'settlement/history/detail': <PartnerSettlementDetail />,
+  // 리더 소식지 페이지 내용은 리더 본사 소식지와 동일(사이드바 그룹명만 다름) → 재사용.
+  'hq-notices': <HqNotices />,
 }
 
 /** nav(그룹/항목) → 상대 경로 자식 라우트 배열. 미구현은 Placeholder. */
