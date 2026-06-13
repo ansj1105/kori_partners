@@ -7,6 +7,7 @@
   "common.search": "Search",
   "common.filter": "Filter",
   "common.excel": "Excel",
+  "common.detail": "Detail",
   "common.comingSoon": "This page is coming soon.",
   "page.merchantSignup": "Merchant Sign-up",
 
@@ -388,5 +389,15 @@
   "settle.detail.e.reason": "Hold Reason",
   "settle.detail.e.amount": "Amount",
   "settle.detail.e.heldFee": "Held Fee",
-  "settle.detail.e.status": "Status"
+  "settle.detail.e.status": "Status",
+
+  "hq.title": "HQ Newsletter - All Notices",
+  "hq.tableTitle": "HQ Newsletter / Notices",
+  "hq.col.no": "Notice ID",
+  "hq.col.author": "Author",
+  "hq.col.target": "Target",
+  "hq.col.title": "Title",
+  "hq.col.sentDate": "Sent Date",
+  "hq.col.read": "Read",
+  "hq.col.action": "Action"
 }

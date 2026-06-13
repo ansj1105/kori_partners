@@ -7,6 +7,7 @@
   "common.search": "검색",
   "common.filter": "필터",
   "common.excel": "Excel",
+  "common.detail": "상세",
   "common.comingSoon": "이 화면은 구현 예정입니다.",
   "page.merchantSignup": "가맹점 회원가입",
 
@@ -388,5 +389,15 @@
   "settle.detail.e.reason": "보류 사유",
   "settle.detail.e.amount": "거래금액",
   "settle.detail.e.heldFee": "보류 수수료",
-  "settle.detail.e.status": "상태"
+  "settle.detail.e.status": "상태",
+
+  "hq.title": "본사 소식지 - 전체공지",
+  "hq.tableTitle": "본사 소식지 / 공지",
+  "hq.col.no": "공지ID",
+  "hq.col.author": "작성자",
+  "hq.col.target": "대상",
+  "hq.col.title": "제목",
+  "hq.col.sentDate": "발송일",
+  "hq.col.read": "읽음",
+  "hq.col.action": "액션"
 }

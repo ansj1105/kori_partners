@@ -1,0 +1,7 @@
+/* 본사 소식지(전체공지) — 페이지 제목 + 공지 테이블 */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 1;
+}
