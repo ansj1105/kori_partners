@@ -19,6 +19,7 @@ import ActivityLog from './pages/ActivityLog'
 import Profile from './pages/Profile'
 import PartnerDashboard from './pages/partner/Dashboard'
 import PartnerRequestsMerchant from './pages/partner/RequestsMerchant'
+import MerchantDetail from './pages/partner/MerchantDetail'
 import PartnerSettlementRequest from './pages/partner/SettlementRequest'
 import PartnerNoticeSend from './pages/partner/NoticeSend'
 import PartnerProfile from './pages/partner/Profile'
@@ -129,6 +130,8 @@ export default function App() {
       <Route path={ROLES.partner.basePath} element={<AdminLayout role="partner" />}>
         <Route index element={<Navigate to="dashboard" replace />} />
         {navRoutes(ROLES.partner.nav, PARTNER_PAGES)}
+        {/* 가맹점 가입 요청의 "상세" → 가맹점 정보 화면 (사이드바엔 없는 하위 경로) */}
+        <Route path="requests/merchant/detail" element={<MerchantDetail />} />
         <Route
           path="settlement/history/detail"
           element={

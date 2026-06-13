@@ -1,8 +1,14 @@
+import { Link } from 'react-router-dom'
 import RequestListPage from '../../../components/templates/RequestListPage'
 import ActionBadges from '../../../components/molecules/ActionBadges'
+import Badge from '../../../components/atoms/Badge'
 import type { TableRow } from '../../../components/organisms/DataTable'
 import { useTranslation } from '../../../i18n'
 import { usePartnerMerchantRequests, PARTNER_MERCHANT_ACTIONS } from './usePartnerMerchantRequests'
+
+// 마지막 '상세'는 가맹점 정보 화면으로 연결, 나머지는 표시용 배지
+const REVIEW_ACTIONS = PARTNER_MERCHANT_ACTIONS.slice(0, -1)
+const DETAIL_LABEL = PARTNER_MERCHANT_ACTIONS[PARTNER_MERCHANT_ACTIONS.length - 1]
 
 /*
  * PartnerRequestsMerchant (page) — 파트너 · 요청 관리(가맹점 가입 요청)
@@ -25,7 +31,15 @@ export default function PartnerRequestsMerchant() {
       industry: r.industry,
       opStatus: r.opStatus,
       date: r.date,
-      action: <ActionBadges labels={PARTNER_MERCHANT_ACTIONS} />,
+      // 표시용 액션 배지 + '상세'는 가맹점 정보 화면으로 이동하는 링크
+      action: (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 3, flexWrap: 'nowrap' }}>
+          <ActionBadges labels={REVIEW_ACTIONS} />
+          <Link to="detail">
+            <Badge accent="cyan" size="sm">{DETAIL_LABEL}</Badge>
+          </Link>
+        </div>
+      ),
     },
   }))
 
