@@ -455,5 +455,25 @@
   "notice.send.modal.desc": "선택한 대상에게 공지가 발송됩니다. 발송 후에는 발송 내역에서 결과를 확인할 수 있습니다.",
   "notice.send.modal.cancel": "취소",
   "notice.send.modal.confirm": "발송하기",
-  "notice.send.toast": "공지 발송 요청이 완료되었습니다."
+  "notice.send.toast": "공지 발송 요청이 완료되었습니다.",
+
+  "act.title": "내 권한 / 설정 - 활동로그",
+  "act.tableTitle": "활동로그",
+  "act.kpi.recent": "최근 로그인",
+  "act.kpi.visits": "이번 달 접속 횟수",
+  "act.kpi.visits.note": "정상",
+  "act.kpi.notices": "공지 발송",
+  "act.kpi.notices.note": "이번 달",
+  "act.kpi.failed": "실패한 로그인",
+  "act.kpi.failed.note": "주의",
+  "act.col.no": "번호",
+  "act.col.logId": "로그 ID",
+  "act.col.datetime": "실행 일시",
+  "act.col.type": "활동 유형",
+  "act.col.menu": "메뉴",
+  "act.col.task": "실행 작업",
+  "act.col.target": "대상",
+  "act.col.ip": "IP 주소",
+  "act.col.device": "기기",
+  "act.col.status": "상태"
 }

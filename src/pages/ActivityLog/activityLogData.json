@@ -1,0 +1,15 @@
+{
+  "metrics": [
+    { "id": "recent", "labelKey": "act.kpi.recent", "value": "2026.06.07", "note": "04:28 KST", "chip": "#2a8bff" },
+    { "id": "visits", "labelKey": "act.kpi.visits", "value": "42회", "noteKey": "act.kpi.visits.note", "chip": "#24e6b8", "chipSolid": true },
+    { "id": "notices", "labelKey": "act.kpi.notices", "value": "18건", "noteKey": "act.kpi.notices.note", "chip": "#7c5cff" },
+    { "id": "failed", "labelKey": "act.kpi.failed", "value": "2건", "noteKey": "act.kpi.failed.note", "chip": "#ff4d70" }
+  ],
+  "rows": [
+    { "no": "5", "logId": "LOG-005", "datetime": "2026.06.07 04:28", "type": "로그인", "menu": "인증", "task": "리더 로그인", "target": "Race", "ip": "102.88.*.*", "device": "Chrome", "status": "성공" },
+    { "no": "4", "logId": "LOG-004", "datetime": "2026.06.07 04:28", "type": "공지 발송", "menu": "알림/공지", "task": "정산 안내 발송", "target": "전체공지", "ip": "102.88.*.*", "device": "Chrome", "status": "성공" },
+    { "no": "3", "logId": "LOG-003", "datetime": "2026.06.07 04:28", "type": "정산 신청", "menu": "수수료/정산", "task": "본사 정산 요청", "target": "3,960 KORI", "ip": "102.88.*.*", "device": "Chrome", "status": "검토중" },
+    { "no": "2", "logId": "LOG-002", "datetime": "2026.06.07 04:28", "type": "로그인 실패", "menu": "인증", "task": "비밀번호 오류", "target": "Race", "ip": "102.88.*.*", "device": "Chrome", "status": "보안 알림" },
+    { "no": "1", "logId": "LOG-001", "datetime": "2026.06.07 04:28", "type": "정산 신청", "menu": "수수료/정산", "task": "본사 정산 요청", "target": "3,960 KORI", "ip": "102.88.*.*", "device": "Unknown", "status": "검토중" }
+  ]
+}

@@ -455,5 +455,25 @@
   "notice.send.modal.desc": "The notice will be sent to the selected target. You can check the result in Send History afterwards.",
   "notice.send.modal.cancel": "Cancel",
   "notice.send.modal.confirm": "Send",
-  "notice.send.toast": "Notice send request completed."
+  "notice.send.toast": "Notice send request completed.",
+
+  "act.title": "My Permissions / Settings - Activity Log",
+  "act.tableTitle": "Activity Log",
+  "act.kpi.recent": "Last Login",
+  "act.kpi.visits": "Visits This Month",
+  "act.kpi.visits.note": "Normal",
+  "act.kpi.notices": "Notices Sent",
+  "act.kpi.notices.note": "This Month",
+  "act.kpi.failed": "Failed Logins",
+  "act.kpi.failed.note": "Caution",
+  "act.col.no": "No.",
+  "act.col.logId": "Log ID",
+  "act.col.datetime": "Timestamp",
+  "act.col.type": "Activity Type",
+  "act.col.menu": "Menu",
+  "act.col.task": "Action",
+  "act.col.target": "Target",
+  "act.col.ip": "IP Address",
+  "act.col.device": "Device",
+  "act.col.status": "Status"
 }
