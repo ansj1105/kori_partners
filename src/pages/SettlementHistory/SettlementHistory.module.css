@@ -88,7 +88,8 @@
 .statusSelect {
   appearance: none;
   -webkit-appearance: none;
-  padding: var(--space-2) var(--space-6) var(--space-2) var(--space-4);
+  /* '이번 요청' 칩(.sChip)과 동일한 높이·폰트 — 우측은 화살표 공간만 추가 */
+  padding: 4px var(--space-6) 4px var(--space-3);
   border-radius: var(--radius-pill);
   border: 1px solid color-mix(in srgb, #7c5cff 60%, transparent);
   background-color: color-mix(in srgb, #7c5cff 24%, transparent);
