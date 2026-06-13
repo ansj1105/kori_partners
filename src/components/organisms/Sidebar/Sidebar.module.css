@@ -40,6 +40,13 @@
   border-radius: var(--radius-md);
 }
 
+/* 상위 리더 줄 (파트너 전용 — "리더: ..."). 본인 정보보다 한 단계 약하게. */
+.profileParent {
+  font-size: var(--font-size-10);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent-cyan);
+}
+
 .profileCountry {
   font-size: var(--font-size-12);
   font-weight: var(--font-weight-bold);

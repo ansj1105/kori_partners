@@ -33,9 +33,9 @@ export default function SettlementHistory() {
       held: r.held,
       status: r.status,
       paidDate: r.paidDate,
-      // 상세 → 정산 상세 화면으로 이동
+      // 상세 → 정산 상세 화면으로 이동 (현재 라우트 기준 상대 경로 → 리더/파트너 양쪽 자동 대응)
       action: (
-        <Link to="/settlement/history/detail">
+        <Link to="detail">
           <Badge accent="cyan" size="sm">상세</Badge>
         </Link>
       ),

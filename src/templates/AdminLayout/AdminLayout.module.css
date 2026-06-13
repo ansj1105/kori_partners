@@ -1,4 +1,4 @@
-/* LeaderLayout — 사이드바 + 콘텐츠로 구성된 리더 어드민 공통 셸 */
+/* AdminLayout — 사이드바 + 콘텐츠로 구성된 어드민 공통 셸 (리더/파트너 공용) */
 
 .layout {
   display: flex;
