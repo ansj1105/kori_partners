@@ -7,8 +7,8 @@ import styles from './RequestListPage.module.css'
 interface RequestListPageProps {
   /** 페이지 헤더 제목 (예: "요청 관리") */
   title: string
-  /** 섹션 박스 제목 (예: "파트너 가입 요청") */
-  sectionTitle: string
+  /** 섹션 박스 제목 (예: "파트너 가입 요청"). 제목 없는 화면도 있어 선택값 */
+  sectionTitle?: string
   /** 섹션 설명 문구 (없는 화면도 있어 선택값) */
   sectionDesc?: string
   /** 상단 지표 카드 목록 */

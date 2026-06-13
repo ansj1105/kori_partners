@@ -1,0 +1,40 @@
+{
+  "//": "거래 로그 3종 공통 데이터. 행 필드명은 각 변형의 컬럼 key와 동일하게 맞춰 일반 매핑이 가능하게 함.",
+  "stats": [
+    { "id": "todayVolume", "labelKey": "tx.stat.todayVolume", "value": "46,000 KORI" },
+    { "id": "todayCount", "labelKey": "tx.stat.todayCount", "value": "36" },
+    { "id": "monthVolume", "labelKey": "tx.stat.monthVolume", "value": "46,000 KORI" },
+    { "id": "monthCount", "labelKey": "tx.stat.monthCount", "value": "2" },
+    { "id": "offlineRatio", "labelKey": "tx.stat.offlineRatio", "value": "46" },
+    { "id": "failCancel", "labelKey": "tx.stat.failCancel", "value": "46" },
+    { "id": "syncWait", "labelKey": "tx.stat.syncWait", "value": "46" },
+    { "id": "settleWait", "labelKey": "tx.stat.settleWait", "value": "46" }
+  ],
+  "all": {
+    "rows": [
+      { "txNo": "5", "partner": "NG-SP-0005", "datetime": "2026.06.05 15:02", "merchantCode": "NG-MER-0005", "merchantName": "신발매장", "amount": "120 KORI", "method": "BLE", "fee": "1.2 KORI", "netAmount": "118.8 KORI", "txStatus": "완료", "syncStatus": "완료" },
+      { "txNo": "4", "partner": "NG-SP-0004", "datetime": "2026.06.05 15:02", "merchantCode": "NG-MER-0004", "merchantName": "편의점", "amount": "120 KORI", "method": "QR", "fee": "1.2 KORI", "netAmount": "118.8 KORI", "txStatus": "완료", "syncStatus": "완료" },
+      { "txNo": "3", "partner": "NG-SP-0003", "datetime": "2026.06.05 15:02", "merchantCode": "NG-MER-0003", "merchantName": "편의점", "amount": "120 KORI", "method": "상점", "fee": "1.2 KORI", "netAmount": "118.8 KORI", "txStatus": "실패", "syncStatus": "Sync 대기" },
+      { "txNo": "2", "partner": "NG-SP-0002", "datetime": "2026.06.05 15:02", "merchantCode": "NG-MER-0002", "merchantName": "중국집", "amount": "120 KORI", "method": "BLE", "fee": "1.2 KORI", "netAmount": "118.8 KORI", "txStatus": "거절", "syncStatus": "완료" },
+      { "txNo": "1", "partner": "NG-SP-0001", "datetime": "2026.06.05 15:02", "merchantCode": "NG-MER-0001", "merchantName": "백화점", "amount": "120 KORI", "method": "NFC", "fee": "1.2 KORI", "netAmount": "118.8 KORI", "txStatus": "완료", "syncStatus": "완료" }
+    ]
+  },
+  "offline": {
+    "rows": [
+      { "txNo": "5", "datetime": "2026.06.05 15:02", "merchantName": "신발매장", "method": "BLE", "offlineProof": "생성완료", "syncStatus": "완료", "retry": "0", "errorCode": "-", "amount": "120 KORI", "manualReview": "아니요" },
+      { "txNo": "4", "datetime": "2026.06.05 15:02", "merchantName": "편의점", "method": "QR", "offlineProof": "생성완료", "syncStatus": "실패", "retry": "0", "errorCode": "SYNC-501", "amount": "120 KORI", "manualReview": "필요" },
+      { "txNo": "3", "datetime": "2026.06.05 15:02", "merchantName": "편의점", "method": "상점", "offlineProof": "검증대기", "syncStatus": "Sync 대기", "retry": "1", "errorCode": "SYNC-502", "amount": "120 KORI", "manualReview": "필요" },
+      { "txNo": "2", "datetime": "2026.06.05 15:02", "merchantName": "중국집", "method": "BLE", "offlineProof": "생성완료", "syncStatus": "완료", "retry": "2", "errorCode": "NET-001", "amount": "120 KORI", "manualReview": "필요" },
+      { "txNo": "1", "datetime": "2026.06.05 15:02", "merchantName": "백화점", "method": "NFC", "offlineProof": "생성완료", "syncStatus": "완료", "retry": "2", "errorCode": "NET-002", "amount": "120 KORI", "manualReview": "필요" }
+    ]
+  },
+  "failed": {
+    "rows": [
+      { "txNo": "5", "datetime": "2026.06.05 15:02", "partner": "NG-SP-0005", "merchantCode": "NG-MER-0005", "merchantName": "신발매장", "amount": "120 KORI", "failType": "실패", "errorCode": "BLE-101", "reason": "BLE 연결 실패", "status": "환불 요청중" },
+      { "txNo": "4", "datetime": "2026.06.05 15:02", "partner": "NG-SP-0004", "merchantCode": "NG-MER-0004", "merchantName": "편의점", "amount": "120 KORI", "failType": "실패", "errorCode": "BLE-101", "reason": "QR 만료", "status": "취소완료" },
+      { "txNo": "3", "datetime": "2026.06.05 15:02", "partner": "NG-SP-0003", "merchantCode": "NG-MER-0003", "merchantName": "편의점", "amount": "120 KORI", "failType": "실패", "errorCode": "REF-201", "reason": "중복 결제 확인", "status": "취소완료" },
+      { "txNo": "2", "datetime": "2026.06.05 15:02", "partner": "NG-SP-0002", "merchantCode": "NG-MER-0002", "merchantName": "중국집", "amount": "120 KORI", "failType": "취소", "errorCode": "QR-301", "reason": "QR 만료", "status": "환불 요청중" },
+      { "txNo": "1", "datetime": "2026.06.05 15:02", "partner": "NG-SP-0001", "merchantCode": "NG-MER-0001", "merchantName": "백화점", "amount": "120 KORI", "failType": "환불", "errorCode": "QR-301", "reason": "QR 만료", "status": "환불 완료" }
+    ]
+  }
+}
