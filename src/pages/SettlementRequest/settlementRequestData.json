@@ -1,11 +1,81 @@
 {
-  "fields": [
-    { "labelKey": "settle.req.field.leaderName", "value": "Race / Nigeria" },
-    { "labelKey": "settle.req.field.leaderCode", "value": "NG-LEAD-001" },
-    { "labelKey": "settle.req.field.period", "value": "2026.06.01 ~ 2026.06.06" },
-    { "labelKey": "settle.req.field.finalAmount", "value": "3,960 KORI" },
-    { "labelKey": "settle.req.field.autoSettle", "value": "2,950 KORI" },
-    { "labelKey": "settle.req.field.heldAmount", "value": "640 KORI" },
-    { "labelKey": "settle.req.field.wallet", "value": "TQ9x...82Fz" }
-  ]
+  "banner": {
+    "notice": "정산은 당일 거래를 제외하고, 마지막 정산일 다음날부터 전일까지의 확정 거래만 대상으로 계산됩니다.",
+    "lastDate": "2026.05.01",
+    "period": "2026.05.02 ~ 2026.06.01",
+    "exclude": "2026.06.02 거래는 제외",
+    "method": "본사 승인 후 자동 정산"
+  },
+  "stats": [
+    { "labelKey": "settle.req.stat.targetAmount", "value": "1,842,000 KORI", "note": "2026.05.02 ~ 06.01" },
+    { "labelKey": "settle.req.stat.totalFee", "value": "18,420 KORI", "note": "거래금액의 1%" },
+    { "labelKey": "settle.req.stat.partnerFee", "value": "3,120 KORI", "note": "하부 파트너 수익" },
+    { "labelKey": "settle.req.stat.directFee", "value": "1,480 KORI", "note": "리더 직접 계약 수익" },
+    { "labelKey": "settle.req.stat.autoSettle", "value": "2,950 KORI", "note": "본사 승인 후 자동 처리" },
+    { "labelKey": "settle.req.stat.held", "value": "640 KORI", "note": "환불/Sync/리스크 제외" },
+    { "labelKey": "settle.req.stat.finalAmount", "value": "3,960 KORI", "note": "본사 요청 가능 금액" },
+    { "labelKey": "settle.req.stat.problemCount", "value": "7건", "note": "보류/검토 대상" }
+  ],
+  "calc": { "partnerProfit": "3,120", "directProfit": "1,480", "held": "640", "final": "3,960", "unit": "KORI" },
+  "feeStructure": [
+    ["파트너 경유", "본사 50%", "리더 25%", "파트너 25%", "가맹점"],
+    ["직계약", "본사 60%", "리더 40%", "가맹점"],
+    ["직계약", "본사 75%", "파트너 25%", "가맹점"],
+    ["직계약", "본사 100%", "가맹점"]
+  ],
+  "autoDesc": "리더가 본사에 정산을 요청하면, 정산 대상 기간 내 확정된 거래를 기준으로 리더 수수료와 하부 파트너 수수료가 함께 계산됩니다. 본사 승인 후 하부 파트너에게도 자동 정산 처리되며, 문제 거래와 보류 거래는 정산 대상에서 제외됩니다.",
+  "autoStats": [
+    { "labelKey": "settle.req.stat.partnerFee", "value": "3,120 KORI", "note": "하부 파트너 가맹점 거래 리더 수수료" },
+    { "labelKey": "settle.req.auto.directFeeProfit", "value": "1,480 KORI", "note": "리더 직접 계약 가맹점 수수료" },
+    { "labelKey": "settle.req.stat.autoSettle", "value": "2,950 KORI", "note": "본사 승인 후 파트너 자동 지급" },
+    { "labelKey": "settle.req.stat.held", "value": "640 KORI", "note": "환불, 문제 거래, Sync 실패 제외" }
+  ],
+  "partnerTable": {
+    "descKey": "settle.req.pt.desc",
+    "rows": [
+      { "code": "NG-SP-0001", "name": "Samuel O.", "subCount": "18", "amount": "620,000", "leaderFee": "1,550", "partnerFee": "1,550", "held": "120", "settleable": "1,430", "auto": "자동 예정" },
+      { "code": "NG-SP-0002", "name": "Lagos Mart", "subCount": "7", "amount": "340,000", "leaderFee": "850", "partnerFee": "850", "held": "0", "settleable": "850", "auto": "자동 예정" }
+    ]
+  },
+  "directTable": {
+    "descKey": "settle.req.dt.desc",
+    "rows": [
+      { "code": "NG-MER-0044", "name": "Lagos Store", "city": "Lagos", "contract": "리더 직접", "amount": "280,000", "hqFee": "1,680", "leaderFee": "1,120", "partnerFee": "0", "held": "220", "settleable": "900" }
+    ]
+  },
+  "heldTable": {
+    "descKey": "settle.req.ht.desc",
+    "rows": [
+      { "txNo": "TX-001", "datetime": "06.05 14:22", "type": "파트너 경유", "partner": "Samuel O.", "merchant": "Kori Cafe", "amount": "120,000", "reason": "환불 요청", "heldFee": "600", "status": "정산 보류" },
+      { "txNo": "TX-002", "datetime": "06.05 16:10", "type": "직계약", "partner": "직접 계약", "merchant": "Lagos Direct", "amount": "80,000", "reason": "Sync 실패", "heldFee": "320", "status": "정산 보류" }
+    ]
+  },
+  "summary": {
+    "period": "2026.05.02 ~ 2026.06.01",
+    "lastDate": "2026.05.01",
+    "finalAmount": "3,960 KORI",
+    "autoSettle": "2,950 KORI",
+    "held": "640 KORI",
+    "requestAmount": "3,960 KORI",
+    "wallet": "TQ9x...82Fz",
+    "currency": "KORI",
+    "memoPlaceholder": "본사에 전달할 정산 요청 메모를 입력하세요."
+  },
+  "checks": [
+    "정산 대상 기간과 제외된 당일 거래 기준을 확인했습니다.",
+    "본사 승인 후 하부 파트너 자동 정산 구조를 확인했습니다.",
+    "보류 거래와 문제 거래 제외에 동의합니다.",
+    "환불, 취소, Sync 실패, 리스크 거래 발생 시 금액 조정 가능성을 확인했습니다."
+  ],
+  "form": {
+    "fields": [
+      { "labelKey": "settle.req.field.leaderName", "value": "Race / Nigeria" },
+      { "labelKey": "settle.req.field.leaderCode", "value": "NG-LEAD-001" },
+      { "labelKey": "settle.req.field.period", "value": "2026.06.01 ~ 2026.06.06" },
+      { "labelKey": "settle.req.field.finalAmount", "value": "3,960 KORI" },
+      { "labelKey": "settle.req.field.autoSettle", "value": "2,950 KORI" },
+      { "labelKey": "settle.req.field.heldAmount", "value": "640 KORI" },
+      { "labelKey": "settle.req.field.wallet", "value": "TQ9x...82Fz" }
+    ]
+  }
 }
