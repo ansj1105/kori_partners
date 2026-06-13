@@ -1,8 +1,7 @@
 /* ActionBadges — 테이블 액션 컬럼의 작은 배지 묶음 */
 .actions {
   display: flex;
-  gap: var(--space-1);
-  /* 배지가 컬럼 폭을 넘치면 다음 줄로 흘려보낸다(가로 넘침으로 표가 깨지는 것 방지).
-     컬럼이 충분히 넓으면 자연히 한 줄을 유지한다. */
-  flex-wrap: wrap;
+  gap: 3px;            /* 한 줄에 여러 배지가 들어가도록 간격을 좁게 */
+  flex-wrap: nowrap;   /* 항상 한 줄 유지 */
+  min-width: 0;
 }

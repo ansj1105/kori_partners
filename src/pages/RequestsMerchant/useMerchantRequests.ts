@@ -49,7 +49,7 @@ export function useMerchantRequests() {
     { key: 'industry', label: t('merchant.col.industry'), width: '0.9fr' },
     { key: 'opStatus', label: t('merchant.col.opStatus'), width: '0.9fr' },
     { key: 'date', label: t('merchant.col.date'), width: '1.1fr' },
-    { key: 'action', label: t('merchant.col.action'), width: '1.8fr' },
+    { key: 'action', label: t('merchant.col.action'), width: '2.2fr' },
   ]
 
   return { stats, columns, rows: data.rows as MerchantRow[] }
