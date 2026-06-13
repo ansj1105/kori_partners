@@ -1,0 +1,13 @@
+{
+  "//": "로컬 Figma MCP 설정 템플릿. 실제 .mcp.json은 PAT(비밀)을 담으므로 git에서 제외됨(.gitignore).",
+  "//설정법": "이 파일을 .mcp.json 으로 복사하고 FIGMA_API_KEY 값에 Figma 개인 액세스 토큰을 넣으세요.",
+  "mcpServers": {
+    "figma": {
+      "command": "npx",
+      "args": ["-y", "figma-developer-mcp", "--stdio"],
+      "env": {
+        "FIGMA_API_KEY": "your-figma-personal-access-token"
+      }
+    }
+  }
+}

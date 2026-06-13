@@ -1,0 +1,131 @@
+/* 사이드바 — 모든 리더 어드민 화면이 공유하는 좌측 고정 내비게이션 */
+
+.sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;               /* 콘텐츠가 넓어져도 사이드바 폭은 고정 */
+  height: 100vh;
+  position: sticky;             /* 콘텐츠 스크롤 시에도 사이드바는 따라옴 */
+  top: 0;
+  padding: var(--space-6) var(--space-4);
+  background-color: var(--color-bg-sidebar);
+  border-right: 1px solid color-mix(in srgb, var(--color-border-accent) 45%, transparent);
+  overflow-y: auto;             /* 메뉴가 길면 사이드바 자체 스크롤 */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);          /* Figma: 최상위 요소 간격 8 */
+}
+
+/* ===== 상단 브랜드/프로필 영역 ===== */
+.brand {
+  font-size: var(--font-size-23);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
+}
+
+.role {
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent-cyan);   /* 역할 텍스트는 시안 강조색 */
+}
+
+/* 리더 본인의 국가/코드 카드. 표시 데이터는 Figma 샘플 값 하드코딩. */
+.profileCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);          /* Figma: 카드 내부 간격 4 */
+  padding: var(--space-3);      /* Figma: 패딩 12 */
+  /* Figma: 배경 #110c1f 76% + 청록(#29e085) 테두리 */
+  background-color: color-mix(in srgb, var(--color-bg-elevated) 76%, transparent);
+  border: 1px solid var(--color-accent-green);
+  border-radius: var(--radius-md);
+}
+
+.profileCountry {
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
+}
+
+.profileCode {
+  font-size: var(--font-size-10);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-muted);
+}
+
+/*
+ * "전체 목록" 라벨.
+ * [확인 필요] Figma상 메뉴 위에 굵게 표기돼 있으나 클릭 동작/이동 대상이 명시돼 있지 않음.
+ * 임의로 라우트를 만들지 않고, 우선 비클릭 라벨로 표시해 둠. (동작 확정 시 링크로 승격)
+ */
+.allLabel {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ===== 메뉴 ===== */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);          /* Figma: 그룹 사이 간격 8 */
+}
+
+/*
+ * 메뉴 그룹 = 카드 한 장.
+ * Figma: 비활성 그룹은 #110c1f 18%의 아주 옅은 배경, 활성(현재 화면이 속한) 그룹은
+ * 보라(#8f47ff) 30% 배경으로 강조된다. (radius 10)
+ */
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;                     /* Figma: 제목↔항목, 항목↔항목 간격 2 */
+  padding: 7px;                 /* Figma: 그룹 패딩 7 */
+  border-radius: var(--radius-sm);
+  background-color: color-mix(in srgb, var(--color-bg-elevated) 18%, transparent);
+}
+
+.groupActive {
+  background-color: color-mix(in srgb, var(--color-accent-purple) 30%, transparent);
+}
+
+/* 그룹 제목 — 11px/700. 비활성은 흐린 보라, 활성 그룹은 흰색. */
+.groupTitle {
+  font-size: var(--font-size-11);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-muted);
+}
+
+.groupTitleActive {
+  color: var(--color-text);
+}
+
+/* 하위 메뉴 항목(링크) — 9px/400. 비활성은 흐린 색, 활성 항목은 시안. */
+.item {
+  display: block;
+  font-size: var(--font-size-9);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-subtle);
+  transition: color 0.15s ease;
+}
+
+.item:hover {
+  color: var(--color-text-muted);
+}
+
+/* 활성(현재 화면) 항목 — 시안 강조 */
+.itemActive {
+  color: var(--color-accent-cyan);
+}
+
+/* "·" 글머리표는 데이터가 아니라 표시용이므로 CSS로 부여 (글자색을 따라감) */
+.item::before {
+  content: '· ';
+  color: currentColor;
+}
+
+/* 반응형: 좁은 화면에서는 사이드바 폭을 줄여 콘텐츠 공간 확보.
+   (모바일 드로어 전환은 후속 과제 — 우선 데스크톱/태블릿 기준으로 동작) */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 240px;
+    padding: var(--space-4) var(--space-3);
+  }
+}

@@ -1,0 +1,53 @@
+/* LeaderLayout — 사이드바 + 콘텐츠로 구성된 리더 어드민 공통 셸 */
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  position: relative;
+  overflow: hidden;           /* 네온 글로우가 화면 밖으로 번지지 않도록 클립 */
+}
+
+/*
+ * 역할 포털 네온 글로우 — Figma의 "역할 포털 네온 글로우" 장식(580x580 원형).
+ * 실제 값: 솔리드 시안(#1ad1ff) 원 + 레이어 블러 92px. 화면 우측 상단 모서리에 걸쳐 있어
+ * 일부만 보이며 부드러운 빛 번짐 효과를 낸다. (기능 없는 배경 장식)
+ * opacity는 시안 원이 과하게 밝지 않도록 시안 톤을 유지하며 시각적으로 맞춘 값.
+ */
+.glow {
+  position: absolute;
+  /* 중심이 우측 상단 모서리에 가깝게 걸치도록 바깥으로 더 밀어냄 → 모서리 빛 번짐만 은은하게 */
+  top: -300px;
+  right: -240px;
+  width: 580px;
+  height: 580px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent-cyan);
+  filter: blur(92px);
+  opacity: 0.22;             /* 과하지 않게 톤 다운 (시각 조정값) */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 라우팅된 화면이 그려지는 콘텐츠 영역 */
+.content {
+  position: relative;
+  z-index: 1;                 /* 글로우 위에 콘텐츠가 오도록 */
+  flex: 1;
+  min-width: 0;               /* flex 자식 overflow 방지 */
+  /* Figma 콘텐츠 안쪽 여백이 ~26px로 작다. 큰 화면에서 양옆이 과하게 비지 않도록
+     좁은 패딩만 주고, 폭 제한(중앙정렬) 없이 남는 영역을 채운다. */
+  padding: var(--space-6);
+}
+
+/* 콘텐츠는 폭 제한 없이 사용 가능한 너비를 채운다 (디자인상 좌우 공백이 작음) */
+.contentInner {
+  width: 100%;
+}
+
+/* 반응형: 좁은 화면에서 패딩 추가 축소 (CLAUDE.md 반응형 주석 규칙) */
+@media (max-width: 1024px) {
+  .content {
+    padding: var(--space-4);
+  }
+}

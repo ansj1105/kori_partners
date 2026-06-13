@@ -1,0 +1,63 @@
+/*
+ * 전역 기본 스타일 (reset + base)
+ * ------------------------------------------------------------------
+ * 최소한의 리셋만 둔다. 컴포넌트별 스타일은 각자의 *.module.css에서 격리 관리하므로
+ * 이 파일에는 "모든 화면 공통의 토대"만 넣는다.
+ */
+
+@import './tokens.css';
+
+/* box-sizing 통일 — 패딩/보더가 width에 포함되도록 (레이아웃 계산 단순화) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 기본 마진 제거 */
+html,
+body,
+h1, h2, h3, h4, h5, h6,
+p, figure, ul, ol {
+  margin: 0;
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  /* 폰트 렌더링을 디자인 시안에 가깝게 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 버튼/입력 요소가 부모 폰트를 상속하도록 (브라우저 기본값 덮어쓰기) */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

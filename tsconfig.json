@@ -1,0 +1,29 @@
+{
+  // 앱 소스(src)용 TypeScript 설정. 빌드 도구(vite.config 등) 설정은 tsconfig.node.json에서 분리 관리.
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* 번들러(Vite) 모드 */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* 린트 성격의 엄격 옵션 — 인계받는 쪽이 타입만 보고 안전하게 쓸 수 있도록 */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* CSS Modules 타입 등 전역 선언 인식 */
+    "types": []
+  },
+  // 앱 소스와 Vite 설정 파일을 함께 타입체크. (소규모 프로젝트라 설정 분리 없이 단일 config 사용)
+  "include": ["src", "vite.config.ts"]
+}

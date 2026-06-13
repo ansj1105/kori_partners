@@ -1,0 +1,19 @@
+/* Badge — 작은 알약형 라벨 (증감 수치, 상태/구분 태그 등) */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-10);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+  white-space: nowrap;
+
+  /*
+   * Figma 기준: accent 색을 17%로 옅게 깐 배경 + accent 색 72% 테두리 + 흰 글씨.
+   * (color-mix로 토큰 색에 투명도를 섞어 표현 — 모던 브라우저 지원)
+   */
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--accent, var(--color-text-subtle)) 17%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent, var(--color-text-subtle)) 72%, transparent);
+}
