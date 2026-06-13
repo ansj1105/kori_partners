@@ -1,0 +1,42 @@
+/* 정산 내역 화면 — 상단 요약 칩 + 상태 탭 + 테이블 */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 1;
+}
+
+/* 요약 칩 줄 (마지막 정산일 / 이번 요청액) */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-pill);
+  background-color: color-mix(in srgb, var(--color-surface) 60%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border-accent) 50%, transparent);
+  font-size: var(--font-size-12);
+}
+
+.pillLabel {
+  color: var(--color-text-muted);
+}
+
+.pillValue {
+  font-size: var(--font-size-15);
+  font-weight: var(--font-weight-bold);
+}
+
+/* "이번 요청" 초록 강조 칩 */
+.pillGreen {
+  border-color: var(--color-accent-green);
+}
+.pillGreen .pillValue {
+  color: var(--color-accent-green);
+}

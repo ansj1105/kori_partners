@@ -10,6 +10,8 @@ import Merchants from './pages/Merchants'
 import MerchantSales from './pages/MerchantSales'
 import TransactionLog from './pages/Transactions'
 import SettlementRequest from './pages/SettlementRequest'
+import SettlementHistory from './pages/SettlementHistory'
+import SettlementDetail from './pages/SettlementDetail'
 import { LEADER_NAV } from './components/organisms/Sidebar/navConfig'
 
 /*
@@ -29,6 +31,7 @@ const IMPLEMENTED_PAGES: Record<string, JSX.Element> = {
   '/transactions/offline': <TransactionLog variant="offline" />,
   '/transactions/failed': <TransactionLog variant="failed" />,
   '/settlement/request': <SettlementRequest />,
+  '/settlement/history': <SettlementHistory />,
 }
 
 /*
@@ -60,6 +63,9 @@ export default function App() {
             element={IMPLEMENTED_PAGES[item.path] ?? <Placeholder titleKey={item.labelKey} />}
           />
         ))}
+
+        {/* 사이드바엔 없는 상세 화면 (정산 내역의 "상세"에서 진입) */}
+        <Route path="/settlement/history/detail" element={<SettlementDetail />} />
       </Route>
 
       {/*

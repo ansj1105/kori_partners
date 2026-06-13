@@ -1,0 +1,26 @@
+/* FilterTabs — 상태/구분 필터 탭 (선택 상태만 로컬 토글) */
+.tabs {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  background-color: color-mix(in srgb, var(--color-surface) 60%, transparent);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.tab:hover {
+  color: var(--color-text);
+}
+
+/* 선택된 탭 — 보라 강조 */
+.tabActive {
+  color: var(--color-text);
+  background-color: rgba(143, 71, 255, 0.22);
+}

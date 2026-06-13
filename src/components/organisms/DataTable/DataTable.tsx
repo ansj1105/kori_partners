@@ -28,6 +28,8 @@ interface DataTableProps {
   toolbar?: string[]
   /** true면 flex 컬럼 부모 안에서 남은 세로 높이를 채운다 (단일 테이블 목록 화면용) */
   fill?: boolean
+  /** true면 카드 외형(배경/테두리/그림자) 없이 표만 렌더 (패널 내부 서브 테이블용) */
+  bare?: boolean
 }
 
 /*
@@ -38,13 +40,17 @@ interface DataTableProps {
  * - 액션 버튼·상태 배지 등은 행 데이터의 셀에 React 노드로 직접 넣어 유연하게 표현.
  * - 정렬/검색/필터 등 동작은 작업 범위 밖(정적 표시).
  */
-export default function DataTable({ columns, rows, title, toolbar, fill }: DataTableProps) {
+export default function DataTable({ columns, rows, title, toolbar, fill, bare }: DataTableProps) {
   // 컬럼 폭을 모아 grid-template-columns 값을 만든다
   const cols = columns.map((c) => c.width ?? '1fr').join(' ')
   const gridStyle = { '--cols': cols } as CSSProperties
 
+  const wrapClass = [styles.wrap, fill && styles.fill, bare && styles.bare]
+    .filter(Boolean)
+    .join(' ')
+
   return (
-    <div className={fill ? `${styles.wrap} ${styles.fill}` : styles.wrap}>
+    <div className={wrapClass}>
       {(title || toolbar) && (
         <div className={styles.tableHead}>
           {title && <h3 className={styles.tableTitle}>{title}</h3>}

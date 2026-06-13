@@ -1,0 +1,11 @@
+{
+  "lastSettleDate": "2026.06.02",
+  "thisRequestAmount": "3,960 KORI",
+  "rows": [
+    { "no": "SET-20260607-001", "appliedDate": "2026.06.05", "period": "2026.05.02~ 2026.06.01", "totalAmount": "160,000 KORI", "leaderAmount": "3,960", "partnerAmount": "2,950", "held": "640", "status": "본사 검토중", "paidDate": "-" },
+    { "no": "SET-20260607-001", "appliedDate": "2026.06.05", "period": "2026.04.02~ 2026.05.01", "totalAmount": "160,000 KORI", "leaderAmount": "3,960", "partnerAmount": "2,950", "held": "640", "status": "지급 완료", "paidDate": "2026.05.05" },
+    { "no": "SET-20260607-001", "appliedDate": "2026.06.05", "period": "2026.03.02~ 2026.04.01", "totalAmount": "160,000 KORI", "leaderAmount": "3,960", "partnerAmount": "2,950", "held": "640", "status": "지급 완료", "paidDate": "2026.04.05" },
+    { "no": "SET-20260607-001", "appliedDate": "2026.06.05", "period": "2026.02.02~ 2026.03.01", "totalAmount": "160,000 KORI", "leaderAmount": "3,960", "partnerAmount": "2,950", "held": "640", "status": "지급 완료", "paidDate": "2026.03.05" },
+    { "no": "SET-20260607-001", "appliedDate": "2026.06.05", "period": "2026.01.02~ 2026.02.01", "totalAmount": "160,000 KORI", "leaderAmount": "3,960", "partnerAmount": "2,950", "held": "640", "status": "지급 완료", "paidDate": "2026.02.05" }
+  ]
+}
