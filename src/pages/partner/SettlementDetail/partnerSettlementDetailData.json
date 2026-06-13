@@ -1,0 +1,29 @@
+{
+  "no": "SET-20260607-001",
+  "status": "본사 검토중",
+  "basicInfo": [
+    { "labelKey": "pdetail.a.no", "value": "SET-20260607-001" },
+    { "labelKey": "pdetail.a.name", "value": "Race / Nigeria" },
+    { "labelKey": "pdetail.a.code", "value": "NG-SP-0001" },
+    { "labelKey": "pdetail.a.period", "value": "-" },
+    { "labelKey": "pdetail.a.lastDate", "value": "2026.05.31" },
+    { "labelKey": "pdetail.a.appliedDate", "value": "2026.06.07", "color": "#24e6b8" },
+    { "labelKey": "pdetail.a.paidDate", "value": "-" },
+    { "labelKey": "pdetail.a.status", "value": "본사 검토중" }
+  ],
+  "amountSummary": [
+    { "labelKey": "pdetail.b.total", "value": "1,842,000 KORI" },
+    { "labelKey": "pdetail.b.totalFee", "value": "18,420 KORI" },
+    { "labelKey": "pdetail.b.merchantProfit", "value": "3,120 KORI" },
+    { "labelKey": "pdetail.b.held", "value": "640 KORI" },
+    { "labelKey": "pdetail.b.finalAmount", "value": "3,960 KORI", "color": "#24e6b8" }
+  ],
+  "merchantRows": [
+    { "name": "Samuel O.", "code": "NG-SP-0001", "amount": "620,000", "fee": "1,550", "status": "자동 예정", "paidDate": "-" },
+    { "name": "Lagos Mart", "code": "NG-SP-0002", "amount": "340,000", "fee": "850", "status": "자동 예정", "paidDate": "-" }
+  ],
+  "heldRows": [
+    { "txNo": "TX-001", "merchant": "Kori Cafe", "partner": "Samuel O.", "reason": "환불 요청", "amount": "120,000", "heldFee": "600", "status": "정산 보류" },
+    { "txNo": "TX-002", "merchant": "Lagos Direct", "partner": "직접 계약", "reason": "Sync 실패", "amount": "80,000", "heldFee": "320", "status": "정산 보류" }
+  ]
+}

@@ -19,6 +19,8 @@ import ActivityLog from './pages/ActivityLog'
 import Profile from './pages/Profile'
 import PartnerDashboard from './pages/partner/Dashboard'
 import PartnerRequestsMerchant from './pages/partner/RequestsMerchant'
+import PartnerSettlementHistory from './pages/partner/SettlementHistory'
+import PartnerSettlementDetail from './pages/partner/SettlementDetail'
 import { ROLES } from './roles'
 import type { NavGroup } from './types'
 
@@ -54,6 +56,8 @@ const PARTNER_PAGES: Record<string, JSX.Element> = {
   // 리더 컴포넌트를 그대로 재사용. (추후 데이터가 달라지면 src/pages/partner/* 로 분리)
   merchants: <Merchants />,
   'merchants/sales': <MerchantSales />,
+  'settlement/history': <PartnerSettlementHistory />,
+  'settlement/history/detail': <PartnerSettlementDetail />,
 }
 
 /** nav(그룹/항목) → 상대 경로 자식 라우트 배열. 미구현은 Placeholder. */
