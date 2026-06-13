@@ -20,7 +20,7 @@
 }
 
 .panelTitle {
-  font-size: var(--font-size-15);
+  font-size: 26px;
   font-weight: var(--font-weight-bold);
 }
 
@@ -31,14 +31,21 @@
   gap: var(--space-3);
 }
 
+/* A·B 섹션 제목 (18/700) */
 .sectionTitle {
-  font-size: var(--font-size-14);
+  font-size: 18px;
+  font-weight: var(--font-weight-bold);
+}
+/* C·D·E 섹션 제목 (20/700) */
+.sectionTitleLg {
+  font-size: 20px;
   font-weight: var(--font-weight-bold);
 }
 
 .sectionDesc {
-  font-size: var(--font-size-11);
-  color: var(--color-text-muted);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-regular);
+  color: #bdb7e7;
 }
 
 /* 확인 버튼 (가운데) */

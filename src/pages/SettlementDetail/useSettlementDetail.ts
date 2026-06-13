@@ -6,6 +6,8 @@ import data from './settlementDetailData.json'
 interface FieldRaw {
   labelKey: string
   value: string
+  /** 강조 값 색 (예: 청록 #24e6b8) — JSON에서 지정 */
+  color?: string
 }
 
 /*
@@ -17,7 +19,7 @@ export function useSettlementDetail() {
   const { t } = useTranslation()
 
   const toItems = (fields: FieldRaw[]): InfoItem[] =>
-    fields.map((f) => ({ label: t(f.labelKey), value: f.value }))
+    fields.map((f) => ({ label: t(f.labelKey), value: f.value, valueColor: f.color }))
 
   const partnerColumns: Column[] = [
     { key: 'name', label: t('settle.detail.c.name'), width: '1.2fr' },

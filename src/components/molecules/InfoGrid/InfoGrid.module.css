@@ -13,12 +13,14 @@
 
 .label {
   font-size: var(--font-size-11);
-  color: var(--color-text-muted);
+  font-weight: var(--font-weight-semibold);
+  color: #8c86b5;
 }
 
 .value {
   font-size: var(--font-size-14);
   font-weight: var(--font-weight-bold);
+  color: #ffffff;
 }
 
 /* 반응형: 좁은 화면에서 열 수 축소 */

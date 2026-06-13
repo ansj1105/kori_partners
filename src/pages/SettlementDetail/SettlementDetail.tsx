@@ -52,7 +52,7 @@ export default function SettlementDetail() {
           <h2 className={styles.panelTitle}>
             {no} {t('settle.detail.detailWord')}
           </h2>
-          <Badge accent="orange">{status}</Badge>
+          <Badge accent="purple">{status}</Badge>
         </div>
 
         {/* A. 정산 기본 정보 */}
@@ -69,21 +69,21 @@ export default function SettlementDetail() {
 
         {/* C. 파트너별 자동 정산 내역 */}
         <section className={styles.section}>
-          <h3 className={styles.sectionTitle}>{t('settle.detail.c.title')}</h3>
+          <h3 className={styles.sectionTitleLg}>{t('settle.detail.c.title')}</h3>
           <p className={styles.sectionDesc}>{t('settle.detail.c.desc')}</p>
           <DataTable columns={partnerColumns} rows={partnerTableRows} bare />
         </section>
 
         {/* D. 직계약 가맹점 정산 내역 */}
         <section className={styles.section}>
-          <h3 className={styles.sectionTitle}>{t('settle.detail.d.title')}</h3>
+          <h3 className={styles.sectionTitleLg}>{t('settle.detail.d.title')}</h3>
           <p className={styles.sectionDesc}>{t('settle.detail.d.desc')}</p>
           <DataTable columns={merchantColumns} rows={merchantTableRows} bare />
         </section>
 
         {/* E. 보류 / 제외 거래 */}
         <section className={styles.section}>
-          <h3 className={styles.sectionTitle}>{t('settle.detail.e.title')}</h3>
+          <h3 className={styles.sectionTitleLg}>{t('settle.detail.e.title')}</h3>
           <p className={styles.sectionDesc}>{t('settle.detail.e.desc')}</p>
           <DataTable columns={heldColumns} rows={heldTableRows} bare />
         </section>

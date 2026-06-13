@@ -7,7 +7,7 @@
     { "labelKey": "settle.detail.a.leaderCode", "value": "NG-LEAD-001" },
     { "labelKey": "settle.detail.a.period", "value": "-" },
     { "labelKey": "settle.detail.a.lastDate", "value": "2026.05.31" },
-    { "labelKey": "settle.detail.a.appliedDate", "value": "2026.06.07" },
+    { "labelKey": "settle.detail.a.appliedDate", "value": "2026.06.07", "color": "#24e6b8" },
     { "labelKey": "settle.detail.a.paidDate", "value": "-" },
     { "labelKey": "settle.detail.a.status", "value": "본사 검토중" }
   ],
@@ -17,7 +17,7 @@
     { "labelKey": "settle.detail.b.partnerProfit", "value": "3,120 KORI" },
     { "labelKey": "settle.detail.b.directProfit", "value": "1,480 KORI" },
     { "labelKey": "settle.detail.b.held", "value": "640 KORI" },
-    { "labelKey": "settle.detail.b.finalAmount", "value": "3,960 KORI" },
+    { "labelKey": "settle.detail.b.finalAmount", "value": "3,960 KORI", "color": "#24e6b8" },
     { "labelKey": "settle.detail.b.autoSettle", "value": "2,950 KORI" }
   ],
   "partnerRows": [

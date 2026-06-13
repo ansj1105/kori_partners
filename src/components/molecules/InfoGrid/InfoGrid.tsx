@@ -4,6 +4,8 @@ import styles from './InfoGrid.module.css'
 export interface InfoItem {
   label: string
   value: string
+  /** 값 색 (강조 항목만 지정 — 예: 청록 #24e6b8). 없으면 기본 흰색 */
+  valueColor?: string
 }
 
 /*
@@ -17,7 +19,9 @@ export default function InfoGrid({ items }: { items: InfoItem[] }) {
       {items.map((it) => (
         <div key={it.label} className={styles.item}>
           <span className={styles.label}>{it.label}</span>
-          <span className={styles.value}>{it.value}</span>
+          <span className={styles.value} style={it.valueColor ? { color: it.valueColor } : undefined}>
+            {it.value}
+          </span>
         </div>
       ))}
     </div>
