@@ -6,9 +6,17 @@ import { useTranslation } from '../../../i18n'
 import data from './signupData.json'
 import styles from './RoleSignup.module.css'
 
+interface ModeDef {
+  key: string
+  labelKey: string
+  descKey: string
+  type: 'code' | 'hq'
+  codePlaceholder?: string
+  confirmed?: string
+}
 const CFG = data as Record<
   string,
-  { titleKey: string; subtitleKey: string; modes: { key: string; labelKey: string }[]; store: boolean }
+  { titleKey: string; subtitleKey: string; modes: ModeDef[]; store: boolean }
 >
 
 /** 입력 한 칸 (라벨 + placeholder, 선택적으로 우측 버튼/넓게) */
@@ -86,18 +94,42 @@ export default function RoleSignup() {
   return (
     <AuthShell title={t(cfg.titleKey)} subtitle={t(cfg.subtitleKey)}>
       <section className={styles.panel}>
-        {/* 가입 방식 탭 */}
+        {/* 가입 방식 카드 — 각 카드에 추천인(코드) 입력란 포함. 선택 시 보더 강조 */}
         <div className={styles.modes}>
-          {cfg.modes.map((m) => (
-            <button
-              key={m.key}
-              type="button"
-              className={`${styles.mode} ${mode === m.key ? styles.modeActive : ''}`}
-              onClick={() => setMode(m.key)}
-            >
-              {t(m.labelKey)}
-            </button>
-          ))}
+          {cfg.modes.map((m) => {
+            const selected = mode === m.key
+            return (
+              <button
+                key={m.key}
+                type="button"
+                className={`${styles.modeCard} ${selected ? styles.modeCardActive : ''}`}
+                onClick={() => setMode(m.key)}
+              >
+                <span className={styles.modeBadge}>{t(m.labelKey)}</span>
+                <span className={styles.modeDesc}>{t(m.descKey)}</span>
+
+                {m.type === 'code' ? (
+                  <>
+                    {/* 추천인(리더/파트너) 코드 입력 + 코드 확인 + 확인 완료 상태 */}
+                    <div className={styles.codeRow}>
+                      <input
+                        className={styles.codeInput}
+                        type="text"
+                        placeholder={m.codePlaceholder}
+                        defaultValue={selected ? m.confirmed : ''}
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                      <span className={styles.codeCheckBtn}>{t('auth.signup.btn.codeCheck')}</span>
+                    </div>
+                    <span className={styles.codeConfirmed}>{t('auth.signup.codeConfirmed')}</span>
+                  </>
+                ) : (
+                  // 본사 직접 계약: 본사 검토 필요 배지
+                  <span className={styles.hqBadge}>{t('auth.signup.hqReview')}</span>
+                )}
+              </button>
+            )
+          })}
         </div>
 
         {/* A. 계정 정보 */}

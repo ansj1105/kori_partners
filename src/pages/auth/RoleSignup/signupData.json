@@ -2,20 +2,20 @@
   "partner": {
     "titleKey": "auth.card.partnerSignup",
     "subtitleKey": "auth.signup.subtitle.partner",
+    "store": false,
     "modes": [
-      { "key": "leader", "labelKey": "auth.signup.mode.leaderCode" },
-      { "key": "hq", "labelKey": "auth.signup.mode.hq" }
-    ],
-    "store": false
+      { "key": "leader", "labelKey": "auth.signup.mode.leaderCode", "descKey": "auth.signup.modeDesc.leaderPartner", "type": "code", "codePlaceholder": "리더 코드", "confirmed": "NG-LEAD-0001" },
+      { "key": "hq", "labelKey": "auth.signup.mode.hq", "descKey": "auth.signup.modeDesc.hq", "type": "hq" }
+    ]
   },
   "merchant": {
     "titleKey": "auth.card.merchantSignup",
     "subtitleKey": "auth.signup.subtitle.merchant",
+    "store": true,
     "modes": [
-      { "key": "leader", "labelKey": "auth.signup.mode.leaderCode" },
-      { "key": "partner", "labelKey": "auth.signup.mode.partnerCode" },
-      { "key": "hq", "labelKey": "auth.signup.mode.hq" }
-    ],
-    "store": true
+      { "key": "leader", "labelKey": "auth.signup.mode.leaderCode", "descKey": "auth.signup.modeDesc.code", "type": "code", "codePlaceholder": "리더 코드", "confirmed": "NG-LEAD-0001" },
+      { "key": "partner", "labelKey": "auth.signup.mode.partnerCode", "descKey": "auth.signup.modeDesc.code", "type": "code", "codePlaceholder": "파트너 코드", "confirmed": "NG-SP-0004" },
+      { "key": "hq", "labelKey": "auth.signup.mode.hq", "descKey": "auth.signup.modeDesc.hq", "type": "hq" }
+    ]
   }
 }

@@ -73,7 +73,14 @@ export default function AuthMain() {
               </span>
               <p className={styles.cardDesc}>{t(c.descKey)}</p>
               <Link to={c.to} className={styles.cardLink}>
-                <Button variant={c.primary ? 'primary' : 'secondary'}>{t(c.buttonKey)}</Button>
+                {tab === 'login' ? (
+                  // 로그인 카드 버튼: 색(그라데이션)은 hover 시에만 적용
+                  <button type="button" className={styles.loginCardBtn}>
+                    {t(c.buttonKey)}
+                  </button>
+                ) : (
+                  <Button variant="primary">{t(c.buttonKey)}</Button>
+                )}
               </Link>
             </div>
           ))}
