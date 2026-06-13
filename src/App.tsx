@@ -50,6 +50,9 @@ const LEADER_PAGES: Record<string, JSX.Element> = {
 const PARTNER_PAGES: Record<string, JSX.Element> = {
   dashboard: <PartnerDashboard />,
   'requests/merchant': <PartnerRequestsMerchant />,
+  // 가맹점 전체 목록은 Figma상 리더 화면과 데이터·구조가 동일 → 리더 Merchants 그대로 재사용.
+  // (추후 파트너 데이터가 달라지면 src/pages/partner/Merchants로 분리)
+  merchants: <Merchants />,
 }
 
 /** nav(그룹/항목) → 상대 경로 자식 라우트 배열. 미구현은 Placeholder. */
