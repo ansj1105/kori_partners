@@ -1,0 +1,15 @@
+{
+  "stats": [
+    { "id": "total", "labelKey": "partnerList.kpi.total", "value": "46" },
+    { "id": "active", "labelKey": "partnerList.kpi.active", "value": "36" },
+    { "id": "suspended", "labelKey": "partnerList.kpi.suspended", "value": "2" },
+    { "id": "black", "labelKey": "partnerList.kpi.black", "value": "2" }
+  ],
+  "rows": [
+    { "no": "5", "partner": "NG-SP-0005", "name": "Lagos Mart5", "telegram": "@samuel5", "region": "Ragos", "subCount": "150", "volume": "135,000 KORI", "txCount": "1,560", "hqStatus": "승인", "opStatus": "정지", "lastTx": "2026.06.05 15:02", "actions": ["상세", "해제요청"] },
+    { "no": "4", "partner": "NG-SP-0004", "name": "Lagos Mart4", "telegram": "@samuel4", "region": "Ragos", "subCount": "150", "volume": "135,000 KORI", "txCount": "1,560", "hqStatus": "승인", "opStatus": "정지", "lastTx": "2026.06.05 15:02", "actions": ["상세", "해제요청"] },
+    { "no": "3", "partner": "NG-SP-0003", "name": "Lagos Mart3", "telegram": "@samuel3", "region": "Ragos", "subCount": "150", "volume": "135,000 KORI", "txCount": "1,560", "hqStatus": "승인", "opStatus": "활성", "lastTx": "2026.06.05 15:02", "actions": ["상세", "정지요청"] },
+    { "no": "2", "partner": "NG-SP-0002", "name": "Lagos Mart2", "telegram": "@samuel2", "region": "Ragos", "subCount": "150", "volume": "135,000 KORI", "txCount": "1,560", "hqStatus": "승인", "opStatus": "활성", "lastTx": "2026.06.05 15:02", "actions": ["상세", "정지요청"] },
+    { "no": "1", "partner": "NG-SP-0001", "name": "Lagos Mart1", "telegram": "@samuel1", "region": "Ragos", "subCount": "150", "volume": "135,000 KORI", "txCount": "1,560", "hqStatus": "승인", "opStatus": "활성", "lastTx": "2026.06.05 15:02", "actions": ["상세", "정지요청"] }
+  ]
+}

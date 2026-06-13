@@ -4,6 +4,7 @@ import Placeholder from './pages/Placeholder'
 import Dashboard from './pages/Dashboard'
 import RequestsPartner from './pages/RequestsPartner'
 import RequestsMerchant from './pages/RequestsMerchant'
+import Partners from './pages/Partners'
 import { LEADER_NAV } from './components/organisms/Sidebar/navConfig'
 
 /*
@@ -15,6 +16,7 @@ const IMPLEMENTED_PAGES: Record<string, JSX.Element> = {
   '/dashboard': <Dashboard />,
   '/requests/partner': <RequestsPartner />,
   '/requests/merchant': <RequestsMerchant />,
+  '/partners': <Partners />,
 }
 
 /*

@@ -90,5 +90,24 @@
   "merchant.col.industry": "Industry",
   "merchant.col.opStatus": "Status",
   "merchant.col.date": "Applied",
-  "merchant.col.action": "Actions"
+  "merchant.col.action": "Actions",
+
+  "partnerList.title": "Sales Partner Management",
+  "partnerList.section": "All Partners",
+  "partnerList.kpi.total": "Total Partners",
+  "partnerList.kpi.active": "Active Partners",
+  "partnerList.kpi.suspended": "Suspended Partners",
+  "partnerList.kpi.black": "Blacklisted Partners",
+  "partnerList.col.no": "No.",
+  "partnerList.col.partner": "Partner Code",
+  "partnerList.col.name": "Partner",
+  "partnerList.col.telegram": "Telegram ID",
+  "partnerList.col.region": "Region",
+  "partnerList.col.subCount": "Sub Merchants",
+  "partnerList.col.volume": "Monthly Volume",
+  "partnerList.col.txCount": "Monthly Tx",
+  "partnerList.col.hqStatus": "HQ Status",
+  "partnerList.col.opStatus": "Status",
+  "partnerList.col.lastTx": "Last Tx",
+  "partnerList.col.action": "Actions"
 }

@@ -9,8 +9,8 @@ interface RequestListPageProps {
   title: string
   /** 섹션 박스 제목 (예: "파트너 가입 요청") */
   sectionTitle: string
-  /** 섹션 설명 문구 */
-  sectionDesc: string
+  /** 섹션 설명 문구 (없는 화면도 있어 선택값) */
+  sectionDesc?: string
   /** 상단 지표 카드 목록 */
   stats: StatCardData[]
   /** 테이블 컬럼 정의 */
@@ -44,7 +44,7 @@ export default function RequestListPage({
       {/* 섹션 박스 — 제목 + 설명 + 지표 카드 */}
       <Card className={styles.section}>
         <h2 className={styles.sectionTitle}>{sectionTitle}</h2>
-        <p className={styles.sectionDesc}>{sectionDesc}</p>
+        {sectionDesc && <p className={styles.sectionDesc}>{sectionDesc}</p>}
 
         <div className={styles.statGrid}>
           {stats.map((stat) => (

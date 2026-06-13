@@ -90,5 +90,24 @@
   "merchant.col.industry": "업종",
   "merchant.col.opStatus": "운영상태",
   "merchant.col.date": "신청일",
-  "merchant.col.action": "액션"
+  "merchant.col.action": "액션",
+
+  "partnerList.title": "세일즈 파트너 관리",
+  "partnerList.section": "파트너 전체 목록",
+  "partnerList.kpi.total": "총 파트너",
+  "partnerList.kpi.active": "활성 파트너",
+  "partnerList.kpi.suspended": "정지 파트너",
+  "partnerList.kpi.black": "블랙 파트너",
+  "partnerList.col.no": "번호",
+  "partnerList.col.partner": "담당 파트너",
+  "partnerList.col.name": "파트너명",
+  "partnerList.col.telegram": "Telegram ID",
+  "partnerList.col.region": "담당지역",
+  "partnerList.col.subCount": "하위 가맹점 수",
+  "partnerList.col.volume": "월 거래액",
+  "partnerList.col.txCount": "월 거래건수",
+  "partnerList.col.hqStatus": "본사승인 상태",
+  "partnerList.col.opStatus": "운영 상태",
+  "partnerList.col.lastTx": "최근 거래일",
+  "partnerList.col.action": "액션"
 }
