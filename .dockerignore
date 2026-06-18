@@ -1,0 +1,12 @@
+node_modules
+dist
+build
+.git
+.env
+.env.*
+.mcp.json
+.claude
+*.log
+npm-debug.log*
+tsconfig.tsbuildinfo
+tsconfig.node.tsbuildinfo
